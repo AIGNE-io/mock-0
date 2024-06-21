@@ -1,6 +1,6 @@
-# mock-0
+# Mock0
 
-
+AI-Powered Components generator, Inspired by Vercel's V0
 
 ## Install And Run
 
