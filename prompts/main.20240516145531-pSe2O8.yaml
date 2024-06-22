@@ -35,6 +35,7 @@ outputVariables:
     appearance:
       componentId: x0wzk2zavjp0y7t8
       componentName: V0 Page
+      componentBlockletDid: z2qZysTWoS7xKMmdVBPFw35w5oSwGeL4ET5rN
   - id: m6UU_97GPVk2iRrB_Nrxo
     name: code
     type: string
@@ -51,6 +52,7 @@ outputVariables:
     appearance:
       componentId: onxcxc4raya3sbgp
       componentName: V0 Output
+      componentBlockletDid: z2qZysTWoS7xKMmdVBPFw35w5oSwGeL4ET5rN
   - id: 9SNyoz56VOVZI4kXLbCYV
     name: $appearance.input
     initialValue:
@@ -59,6 +61,7 @@ outputVariables:
     appearance:
       componentId: ue3842kf5kpm2ryd
       componentName: V0 Input
+      componentBlockletDid: z2qZysTWoS7xKMmdVBPFw35w5oSwGeL4ET5rN
   - id: Vi5eoMLtqxA3iTDGysc_i
     name: $openingQuestions
     initialValue:
