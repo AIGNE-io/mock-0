@@ -113,7 +113,7 @@ updatedAt: 2024-05-09T08:28:50.229Z
 createdBy: z1TCComgCJNHbHWetTWGdhPB6NYZ2ReDjLu
 updatedBy: z1TCComgCJNHbHWetTWGdhPB6NYZ2ReDjLu
 name: update-component
-model: gpt-4o
+model: gpt-4o-mini
 temperature: 0.2
 description: update the component by designed
 presencePenalty: 0

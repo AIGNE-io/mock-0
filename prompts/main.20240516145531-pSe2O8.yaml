@@ -93,7 +93,7 @@ updatedAt: 2024-05-09T03:09:47.771Z
 createdBy: z1TCComgCJNHbHWetTWGdhPB6NYZ2ReDjLu
 updatedBy: z1TCComgCJNHbHWetTWGdhPB6NYZ2ReDjLu
 name: main
-model: gpt-4o
+model: gpt-4o-mini
 prompt: |-
   Latest Code: 
   -----------------------
