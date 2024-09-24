@@ -55,56 +55,59 @@ updatedAt: 2024-05-13T13:34:11.700Z
 createdBy: z1TCComgCJNHbHWetTWGdhPB6NYZ2ReDjLu
 updatedBy: z1TCComgCJNHbHWetTWGdhPB6NYZ2ReDjLu
 name: inject-global-data
-code: >+
+code: >
   let dumpList = [];
 
 
   try {
-    dumpList = JSON.parse(dumpListText)
-    dumpList = dumpList.map(item => {
-      if (item.content) {
-        try {
-          return JSON.parse(item.content)
-        } catch (e) {
-          // ignore error
+    dumpList = JSON.parse(dumpListText);
+    dumpList = dumpList
+      .map((item) => {
+        if (item.content) {
+          try {
+            return JSON.parse(item.content);
+          } catch (e) {
+            // ignore error
+          }
         }
-      }
-      return false
-    }).filter(Boolean)
+        return false;
+      })
+      .filter(Boolean);
   } catch (e) {
     // ignore error
-    console.error(e)
+    console.error(e);
   }
 
 
-  console.log('dumpList count: ', dumpList.length)
+  console.log('dumpList count: ', dumpList.length);
 
 
-  // filter empty 
+  // filter empty
 
   dumpList = dumpList.filter(({ name, description, docs }) => {
     if (!name || !description || !docs) {
-      return false
+      return false;
     }
-    return true
-  })
+    return true;
+  });
 
 
+  const supportedList = dumpList.map(({ name, description, docs }) => {
+    return `${name}: ${description}, provided components: [${docs?.components?.join(', ')}]`;
+  });
 
-  const supportedList = dumpList
-    .map(({ name, description, docs }) => {
-      return `${name}: ${description}, provided components: [${docs?.components?.join(', ')}]`;
-    });
 
   const examplesList = dumpList
     .map(({ name, docs }) => {
-      let examplesText = "// No examples"
+      let examplesText = '// No examples';
 
       if (docs?.examples?.length) {
-        examplesText = docs?.examples?.map(({ source, code }, index) => {
-          return `// [${index + 1}] ${source}
+        examplesText = docs?.examples
+          ?.map(({ source, code }, index) => {
+            return `// [${index + 1}] ${source}
   ${code}`;
-        }).join('\n');
+          })
+          .join('\n');
       }
       return `${name} Examples: 
   \`\`\`tsx
@@ -112,16 +115,13 @@ code: >+
   \`\`\`
 
   `;
-    }).filter(Boolean);
+    })
+    .filter(Boolean);
 
-
-  // eslint-disable-next-line no-console
-
-  console.info('result: ', {
+  console.log('result: ', {
     supportedList,
     examplesList,
   });
-
 
 
   const librariesCondiction = `Multiple library components can be used while
@@ -140,7 +140,7 @@ code: >+
   IMPORT ICON FROM OTHER LIBRARY! DO NOT IMPORT ICON FROM MUI! 
 
 
-  `
+  `;
 
 
   const codingCondiction = `The full code for the component, which uses mui sx
@@ -198,7 +198,7 @@ code: >+
 
   ---------------------------
 
-  `
+  `;
 
 
   const designSystemCondiction = `
@@ -219,8 +219,7 @@ code: >+
   you add details. For some simple User Query, you can even produce hundreds of
   words of description!
 
-  `
-
+  `;
 
 
   // --------- protected code ---------
@@ -231,8 +230,5 @@ code: >+
     examplesList: examplesList,
     librariesCondiction: librariesCondiction,
     codingCondiction: codingCondiction,
-    designSystemCondiction: designSystemCondiction
-  }
-
-
-
+    designSystemCondiction: designSystemCondiction,
+  };
